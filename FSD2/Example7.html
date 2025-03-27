@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Table</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Course Information</h2>
+  <table id="jsonTable">
+    <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Course Level</th>
+        <th>Content</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <script>
+    const jsonData = {
+      "FSD": [
+        {
+          "Topic": "HTML",
+          "course": "Beginer",
+          "content": ["tags", "table", "form"]
+        },
+        {
+          "Topic": "CSS",
+          "course": "Beginer",
+          "content": ["tags", "table", "form"]
+        }
+      ]
+    };
+
+    const tableBody = document.querySelector("#jsonTable tbody");
+
+    jsonData.FSD.forEach(item => {
+      const row = document.createElement("tr");
+
+      const topicCell = document.createElement("td");
+      topicCell.textContent = item.Topic;
+      row.appendChild(topicCell);
+
+      const courseCell = document.createElement("td");
+      courseCell.textContent = item.course;
+      row.appendChild(courseCell);
+
+      const contentCell = document.createElement("td");
+      contentCell.textContent = item.content.join(", "); // Convert the array to a comma-separated string
+      row.appendChild(contentCell);
+
+      tableBody.appendChild(row);
+    });
+  </script>
+
+</body>
+</html>

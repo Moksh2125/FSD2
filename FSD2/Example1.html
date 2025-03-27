@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function call(){
+            const obj = '{"dob" : "2001-03-18", "name" : "A"}';
+        const jParse = JSON.parse(obj)
+        document.getElementById("test").innerHTML = new Date(jParse.dob)
+        }
+    </script>
+</head>
+<body>
+    <h1 id = "test">Print Date</h1>
+    <button onclick="call()">Click Here</button>
+</body>
+</html>
